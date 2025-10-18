@@ -1,25 +1,31 @@
 # Getting Started with Terraform
 
-Terraform is the most popular langauge for defining and provisioning infrastructure as code (IaC).
+## Introduction
+Terraform defines and provisions infrastructure as code (IaC). 
 
-To install Terraform, simply visit [Terraform.io](https://www.terraform.io/downloads.html) and download the compressed binary application executable file deliverable for your platform, machine or environment on which you like to run code and do development.
+## Installation instruction
+To install Terraform, visit [Terraform.io](https://developer.hashicorp.com/terraform) and download the binary for your platform.
 
-With Terraform installed, let's dive right into it and start creating some infrastructure.
+## Getting started
+After installing Terraform, create your first infrastructure using a configuration file.
 
-Most guys find it easiest to create a new directory on there local machine and create Terraform configuration code inside it.
+### Directory creation
+Create a new directory on your local machine for Terraform configuration files.
 
 ```shell
 $ mkdir terraform-demo
 $ cd terraform-demo
 ```
 
-Next, create a file for your Terraform configuration code.
+### Creating configuration file
+Create a Terraform configuration file:
 
 ```shell
 $ touch main.tf
 ```
 
-Paste the following lines into the file.
+### Adding the code to file
+Paste the following lines into ```main.tf``` 
 
 ```hcl
 terraform {
@@ -44,25 +50,26 @@ resource "docker_image" "nginx" {
   name = "nginx:latest"
 }
 ```
-
-Initialize Terraform with the `init` command. The AWS provider will be installed. 
+### Initialize Terraform
+Initialize Terraform. This command installs the required providers:
 
 ```shell
 $ terraform init
 ```
 
-You shoud check for any errors. If it ran successfully, provision the resource with the `apply` command.
+### Apply Configuration
+Check for errors after initialization. Provision resources using:
 
 ```shell
 $ terraform apply
 ```
 
-The command will take up to a few minutes to run and will display a message indicating that the resource was created.
-
-Finally, destroy the infrastructure.
+Terraform takes a few minutes to run. It prints a message when it creates the resource.
+### Destroy Infrastructure
+Destroy the infrastructure when done:
 
 ```shell
 $ terraform destroy
 ```
-
+Type yes to confirm. Terraform removes all resources created previously.
 Look for a message are the bottom of the output asking for confirmation. Type `yes` and hit ENTER. Terraform will destroy the resources it had created earlier.
